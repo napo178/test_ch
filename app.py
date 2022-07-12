@@ -66,7 +66,7 @@ st.write('The hour is', hour)
 
 
 if st.button("Predict"):
-    pickle_in = open('model.sav', 'rb')
+    pickle_in = open('model_sklearn.json', 'rb')
     model = joblib.load(pickle_in)
     predict=model.predict([[product,location,price,year,month,day,hour]])
   
