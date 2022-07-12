@@ -6,6 +6,7 @@ import pickle
 import numpy as np
 import plotly.express as px
 import sklearn 
+import joblib
 
 st.title('Quantity chip')
 from PIL import Image
@@ -65,8 +66,8 @@ st.write('The hour is', hour)
 
 
 if st.button("Predict"):
-    pickle_in = open('model2.pkl', 'rb')
-    model = pickle.load(pickle_in)
+    pickle_in = open('model.sav', 'rb')
+    model = joblib.load(pickle_in)
     predict=model.predict([[product,location,price,year,month,day,hour]])
   
 
