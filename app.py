@@ -2,11 +2,13 @@
 from calendar import month
 import streamlit as st
 import pandas as pd
-import pickle
 import numpy as np
 import plotly.express as px
 import sklearn 
-import joblib
+import pickle
+import xgboost as xgb
+from sklearn.ensemble import GradientBoostingRegressor
+
 
 st.title('Quantity chip')
 from PIL import Image
@@ -66,8 +68,8 @@ st.write('The hour is', hour)
 
 
 if st.button("Predict"):
-    pickle_in = open('model_sklearn.json', 'rb')
-    model = joblib.load(pickle_in)
+    pickle_in = open('model_.pkl', 'rb')
+    model = pickle.load(pickle_in)
     predict=model.predict([[product,location,price,year,month,day,hour]])
   
 
