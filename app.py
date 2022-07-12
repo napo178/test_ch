@@ -6,7 +6,6 @@ import numpy as np
 import plotly.express as px
 import sklearn 
 import pickle
-import xgboost as xgb
 from sklearn.ensemble import GradientBoostingRegressor
 
 
