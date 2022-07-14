@@ -63,7 +63,7 @@ if st.button("Predict"):
     
     pickle_in = open('finalized_model.pkl', 'rb')
     model = pickle.load(pickle_in)
-    predict=model.predict([[product,location,price,year,month,day,hour]])
+    predict=model.predict([[location,product,price,day,year,month,hour]])
      
 
     st.text(f"""
