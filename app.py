@@ -5,8 +5,7 @@ import numpy as np
 import plotly.express as px
 import sklearn 
 import pickle
-import xgboost as xgb
-
+from sklearn.ensemble import HistGradientBoostingRegressor
 
 
 
@@ -52,10 +51,6 @@ hour= st.number_input('hour', 1.0)
 
 st.write('The hour is', hour)
 
-
-
-model = xgb.XGBRegressor()
-model.load_model('model_sklearn.json')
 
 
 
