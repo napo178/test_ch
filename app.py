@@ -8,16 +8,10 @@ import pickle
 import xgboost as xgb
 
 
-st.title('Quantity chip')
-from PIL import Image
-image = Image.open('chip.png')
-st.image(image, caption='chip')
 
 
 
 st.title('The app uses the real inputs to predict the quantity store_id')
-
-
 
 # Add a heading for input features
 st.subheader('Enter  Features for Predictions')
@@ -72,8 +66,10 @@ model.load_model('model_sklearn.json')
 
 if st.button("Predict"):
     
+    pickle_in = open('finalized_model.pkl', 'rb')
+    model = pickle.load(pickle_in)
     predict=model.predict([[product,location,price,year,month,day,hour]])
-  
+     
 
     st.text(f"""
      The predicted items  is :  {predict[0]} 
