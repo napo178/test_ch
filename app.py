@@ -5,32 +5,43 @@ import numpy as np
 import plotly.express as px
 import sklearn 
 import pickle
-from sklearn.ensemble import HistGradientBoostingRegressor
+
+st.title('Real Time order prediction')
+from PIL import Image
+image = Image.open('crmb.png')
+st.image(image, caption='crmb')
 
 
 
 
-st.title('The app uses the real inputs to predict the quantity store_id')
+st.title('The app uses the real inputs to predict the quantity of cookies in each location')
+
 
 # Add a heading for input features
 st.subheader('Enter  Features for Predictions')
 
+
+
  # Rwquest for input fatures, but replod with some default values
+location= st.number_input('location', 7)
+
+st.write(' The location is :', location)
+
 product= st.number_input('product_id', 1.0)
 
-st.write(' The product id is :', product)
-
-location= st.number_input('location_id', 1.0)
-
-st.write('The location_id is:', location)
+st.write('The product id is:', product)
 
 price= st.number_input('unit_price', 1.0)
 
 st.write('The price is :', price)
 
 
-year= st.number_input('year', 1.0)
+day= st.number_input('day', 1.0)
 
+st.write('The day is', day)
+
+
+year= st.number_input('year', 1.0)
 
 st.write('The year is', year)
 
@@ -40,18 +51,10 @@ month= st.number_input('month', 1.0)
 
 st.write('The month is', month)
 
-
-day= st.number_input('day', 1.0)
-
-st.write('The day is', day)
-
-
 hour= st.number_input('hour', 1.0)
 
 
 st.write('The hour is', hour)
-
-
 
 
 
@@ -70,6 +73,8 @@ if st.button("Predict"):
      The predicted items  is :  {predict[0]} 
     """)    # Get the input features
     # run predictions
+
+
 
 
 
